@@ -1,0 +1,6 @@
+#!/bin/bash
+#/nft
+input=$(cat)
+[ ! -z "$input" ] &&  echo "$input" >> input.log && echo "$input" | ./nft -f - && exit 0
+[ -f "$2" ] && cp "$2" "/log$2.log" && ./nft -f "$2" && exit 0
+exit 3
