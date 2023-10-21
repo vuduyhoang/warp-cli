@@ -7,7 +7,7 @@ debug: build
 	docker run -p 127.0.0.1:1079:1080 --cap-add=NET_ADMIN --cap-add=NET_RAW --cap-add=SYS_ADMIN --name warp-cli \
 	--device=/dev/net/tun:/dev/net/tun --mac-address 84:3A:4B:C8:E9:00 -it -d warp-cli
 rund:
-	docker run --cap-add=NET_ADMIN --cap-add=NET_RAW --cap-add=SYS_ADMIN --name warp-cli \
+	docker run -p 127.0.0.1:1079:1080 --cap-add=NET_ADMIN --cap-add=NET_RAW --cap-add=SYS_ADMIN --name warp-cli \
 	--device=/dev/net/tun:/dev/net/tun --mac-address 84:3A:4B:C8:E9:00 -d warp-cli
 test1:
 	docker run --cap-add=NET_ADMIN --cap-add=NET_RAW --name warp-cli --device=/dev/net/tun:/dev/net/tun --net=host -it warp-cli

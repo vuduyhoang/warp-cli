@@ -8,7 +8,7 @@ RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-
 RUN apt-get update && apt-get -y install cloudflare-warp
 RUN mkdir /var/log/cloudflare-warp /var/lib/cloudflare-warp /var/run/cloudflare-warp
 ADD danted.conf /etc/danted.conf
-RUN apt-get remove -f gpg curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get remove -y curl && rm -rf /var/lib/apt/lists/*
 EXPOSE 1080
 ENTRYPOINT [ "warp-svc" ]
 #/etc/init.d/danted start
